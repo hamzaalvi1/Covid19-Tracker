@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import {FlexWrapper} from "./styleComponents/styledComponents"
+import CovidLeftPanel from "./covid-left-panel/covid-leftPanel"
+import CovidRightPanel from "./covid-right-panel/covid-rightPanel"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <FlexWrapper> 
+      <CovidLeftPanel/>
+      <CovidRightPanel/>
+      </FlexWrapper>
+
+      
     </div>
   );
 }
