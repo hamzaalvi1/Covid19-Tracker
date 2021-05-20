@@ -7,9 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f1f1f182;
-  background: url(/public/images/bg.png) no-repeat;
-  height: 100vh;
-  width: 100%;
+  
+
 }
 
 code {

@@ -10,7 +10,7 @@
   align-items: center;
 }
 .app__leftPanel{
-  flex: 0.6;
+  flex: 0.9;
 }
 .app__cases__details {
   display: flex;
@@ -18,5 +18,10 @@
   align-items: center;
   margin: 20px 0;
 }
-
+.app__right__panel{
+  width: 25%;
+}
+.cases__table tr:nth-of-type(odd){
+  background-color: #dddddd7d;
+}
 

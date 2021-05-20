@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const FlexWrapper = styled.div`
 display: flex;
-justify-content: space-evenly;
-align-items: center;
+justify-content: space-around;
+ align-items: start;;
 margin: 20px 0;
 
 `
@@ -64,6 +64,31 @@ font-style: italic;
 color: #000;
 padding: 10px 0;
 `
+export const MainHeading = styled(CasesNumbers)`
+text-align: center;
+`
+
+export const CasesTable = styled.table`
+width: 100%;
+height: auto;
+    padding: 10px 0;
+`
+
+export const TableRow = styled.tr`
+display:flex;
+justify-content: space-between;
+align-items: center;
+padding: 05px 15px;
+`
+export const TableData = styled.td`
+    font-size: 22px;
+    color: #000;
+    font-weight: 600;
+    font-style: italic;
+
+
+`
+
 export const CasesPara  = styled(CasesSubTitle)`
 font-size: 18px;
 
@@ -73,7 +98,7 @@ width: 100%;
 background-color: #fff;
 border-radius: 4px;
 box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-height: 180px
+height: auto
 
 
 `
