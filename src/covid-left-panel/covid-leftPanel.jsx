@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from "../header/header"
 import CasesDetails from "../CasesDetails/CasesDetails"
+import CovidMap from "../Map/CovidMap"
 
 
 const  covidLeftPanel = () => {
@@ -9,6 +10,7 @@ const  covidLeftPanel = () => {
           
             <Header/>
             <CasesDetails/>
+            <CovidMap/>
           
         </div>
     )
