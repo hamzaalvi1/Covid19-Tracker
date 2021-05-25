@@ -13,10 +13,8 @@ const Header = ()=>{
            {
              allCountries.map(country=>{
                return(
-               
-                
                 <CountryOption value={country.alpha3Code} key={country.alpha3Code}>{country.name}</CountryOption>
-              
+                
                )
              })
            }

@@ -1,8 +1,14 @@
-import React from 'react'
-import {RightMainCard,MainHeading,CasesTable,TableRow,TableData} from "../styleComponents/styledComponents"
+import React , {useContext} from 'react'
+import {RightMainCard,MainHeading,CasesTable,TableRow,TableData,GraphCard} from "../styleComponents/styledComponents"
 import LineChart from "../Chart/Chart"
-
-const  covidRightPanel = () => {
+import {CovidContext} from "../CovidContext/GlobalState"
+import CountUp from "react-countup"
+const  CovidRightPanel = () => {
+    const covidData = useContext(CovidContext)
+    const {allCountryData} = covidData
+    const allLiveCases = allCountryData.sort((a,b)=> { return b.cases - a.cases})
+    
+    
     return (
         <div className="app__right__panel">
              <RightMainCard>
@@ -10,110 +16,31 @@ const  covidRightPanel = () => {
                  World Wide Cases
              </MainHeading>
              <CasesTable className = "cases__table">
-              <TableRow>
-                  <TableData>
-                   USA
-                  </TableData>
-                  <TableData>
-                   34,500
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   Paksitan
-                  </TableData>
-                  <TableData>
-                   25,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   India
-                  </TableData>
-                  <TableData>
-                   55,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   USA
-                  </TableData>
-                  <TableData>
-                   34,500
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   Paksitan
-                  </TableData>
-                  <TableData>
-                   25,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   India
-                  </TableData>
-                  <TableData>
-                   55,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   USA
-                  </TableData>
-                  <TableData>
-                   34,500
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   Paksitan
-                  </TableData>
-                  <TableData>
-                   25,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   India
-                  </TableData>
-                  <TableData>
-                   55,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   USA
-                  </TableData>
-                  <TableData>
-                   34,500
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   Paksitan
-                  </TableData>
-                  <TableData>
-                   25,000
-                  </TableData>
-              </TableRow>
-              <TableRow>
-                  <TableData>
-                   India
-                  </TableData>
-                  <TableData>
-                   55,000
-                  </TableData>
-              </TableRow>
+                {allLiveCases.map((country)=>{
+                  return(
+                    <TableRow key = {country.country}>
+                    <TableData>
+                     {country.country}
+                    </TableData>
+                    <TableData>
+                    <CountUp start = {0} end= {country.cases} separator = "," duration ={2.5}/>
+                    </TableData>
+                </TableRow>
+                  ) 
+                })} 
+              
+             
 
              </CasesTable>
-              <LineChart/>
+              
              
 
             </RightMainCard>
+            <GraphCard>
+            <LineChart/>
+            </GraphCard>
         </div>
     )
 }
 
-export default covidRightPanel
+export default CovidRightPanel

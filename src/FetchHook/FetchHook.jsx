@@ -6,12 +6,16 @@ export const FetchHook = ()=>{
     const [url,setUrl] = useState("worldwide")
     const [covidData,setCovidData]= useState({})
     const [country,setCountry] = useState([])
+    const [allCountryData,setAllCountryData] = useState([])
     useEffect(()=>{
         const getCovidData = async ()=>{
          if(url === "worldwide"){
            const response =  await axios.get(`https://disease.sh/v3/covid-19/all`)
           
              await setCovidData(response.data)
+        }
+        else{
+          const response =  await axios.get(`https://disease.sh/v3/covid-19/all`)
         }
 
         }
@@ -26,7 +30,16 @@ export const FetchHook = ()=>{
         }
         getCountryDetail()
     },[])
+     
+    useEffect(()=>{
+      const getCountryData = async ()=>{
+        const response = await axios.get(`https://disease.sh/v3/covid-19/countries`)
+         await setAllCountryData(response.data)
+      }
+      getCountryData()
+    },[])
 
-   return {covidData,setUrl,country} 
+
+   return {covidData,setUrl,country,allCountryData} 
 
 }

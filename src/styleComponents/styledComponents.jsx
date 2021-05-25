@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const FlexWrapper = styled.div`
 display: flex;
 justify-content: space-around;
@@ -70,7 +71,7 @@ text-align: center;
 
 export const CasesTable = styled.table`
 width: 100%;
-height: auto;
+height: 200px;
     padding: 10px 0;
 `
 
@@ -98,8 +99,14 @@ width: 100%;
 background-color: #fff;
 border-radius: 4px;
 box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-height: auto
+overflow-y: scroll;
+height: 568px;
 
 
+`
+export const GraphCard = styled(RightMainCard)`
+height: auto;
+overflow: initial;
+margin: 10px 0 0 0;
 `
 
