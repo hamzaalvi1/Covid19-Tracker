@@ -16,6 +16,7 @@ const  CovidRightPanel = () => {
                  World Wide Cases
              </MainHeading>
              <CasesTable className = "cases__table">
+               <tbody>
                 {allLiveCases.map((country)=>{
                   return(
                     <TableRow key = {country.country}>
@@ -23,14 +24,14 @@ const  CovidRightPanel = () => {
                      {country.country}
                     </TableData>
                     <TableData>
-                    <CountUp start = {0} end= {country.cases} separator = "," duration ={2.5}/>
+                    <CountUp start = {0} end= {country.cases} separator = "," duration ={3}/>
                     </TableData>
                 </TableRow>
                   ) 
                 })} 
               
              
-
+              </tbody>
              </CasesTable>
               
              
