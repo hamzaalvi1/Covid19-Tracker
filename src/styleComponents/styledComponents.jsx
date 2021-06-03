@@ -7,6 +7,10 @@ justify-content: space-around;
  align-items: start;;
 margin: 20px 0;
 
+@media (max-width: 824px) {
+    display: block
+  }
+
 `
 
 
@@ -48,6 +52,14 @@ box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
 height: 180px;
 padding: 20px 30px;
 border-top: ${props => props.infected ? "16px solid #ff0000" : "14px solid #8cff97"};
+
+@media (max-width: 824px) {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 90%
+  }
+
 `
 
 export const AnotherCard = styled(CasesCard)`

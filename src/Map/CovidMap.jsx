@@ -14,6 +14,7 @@ function CovidMap() {
     return (
      <div className="mapWrapper">
       <ReactMapGL
+      className = "map"
        mapStyle="mapbox://styles/hamza-alvi/ckoywbr372air17o2mux5kdb1"
         mapboxApiAccessToken={`${process.env.REACT_APP_MAPBOX_TOKEN}`}
         {...viewport}

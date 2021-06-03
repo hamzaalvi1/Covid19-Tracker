@@ -1,3 +1,4 @@
+import React from "react"
 import {CasesCard,AnotherCard,CasesSubTitle,CasesNumbers,CasesPara} from '../styleComponents/styledComponents'
 import  {useContext} from "react"
 import  {CovidContext} from "../CovidContext/GlobalState"
@@ -5,6 +6,7 @@ import CountUp from "react-countup"
 const CasesDetails = ()=>{
     const CovidCases = useContext(CovidContext)
     const {covidData} = CovidCases
+    console.log("component re render")
     return(
         <div className="app__cases__details">
             <CasesCard infected>
@@ -34,4 +36,4 @@ const CasesDetails = ()=>{
     )
 }
 
-export default CasesDetails
+export default React.memo(CasesDetails)

@@ -9,6 +9,7 @@ const  CovidRightPanel = () => {
     const allLiveCases = allCountryData.sort((a,b)=> { return b.cases - a.cases})
     
     
+    
     return (
         <div className="app__right__panel">
              <RightMainCard>
@@ -44,4 +45,4 @@ const  CovidRightPanel = () => {
     )
 }
 
-export default CovidRightPanel
+export default React.memo(CovidRightPanel)
