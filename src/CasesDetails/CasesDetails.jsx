@@ -6,7 +6,6 @@ import CountUp from "react-countup"
 const CasesDetails = ()=>{
     const CovidCases = useContext(CovidContext)
     const {covidData} = CovidCases
-    console.log("component re render")
     return(
         <div className="app__cases__details">
             <CasesCard infected>
