@@ -8,6 +8,8 @@ const Header = ()=>{
     const countryPicker = (evt) =>{
       setUrl(evt.target.value)
       evt.target.value ? setCountryCheck(true) : setCountryCheck(false)
+
+
       
     }
     return(
@@ -18,7 +20,6 @@ const Header = ()=>{
            
            {
              allCountries.map(country=>{
-               
                return(
                 <CountryOption  value={country.name} key={country.alpha3Code}>{country.name}</CountryOption>
                 
