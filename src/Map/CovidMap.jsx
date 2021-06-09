@@ -1,9 +1,28 @@
 import {useState,useContext,useEffect,useCallback}from 'react';
 import {CovidContext} from "../CovidContext/GlobalState"
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL ,{ Source, Layer}from 'react-map-gl';
 function CovidMap() {
     const covidCoordinates = useContext(CovidContext)
-    const {coordinates,setCoordinates,url,allCountryData} = covidCoordinates
+    console.log(covidCoordinates)
+    const {coordinates,setCoordinates,url,allCountryData,covidData} = covidCoordinates
+    const {active} = covidData
+    const geojson = {
+      type: 'FeatureCollection',
+      features: [
+        {type: 'Feature', geometry: {type: 'Point', coordinates: [69.3451, 30.3753]}}
+      ]
+    };
+    
+    const layerStyle = {
+      id: 'point',
+      type: 'circle',
+      paint: {
+        'circle-radius': active / 500,
+        'circle-color': '#ff0000',
+        'circle-opacity': 0.4
+      }
+    };
+
    
     const getCoordinates = useCallback(()=>{
       
@@ -14,13 +33,10 @@ function CovidMap() {
           })
           
           const {countryInfo} = getCountry
-          console.log(countryInfo)
 
          return countryInfo
       } 
-      else{
-         console.log("no url")
-      }
+      
         
      
       
@@ -47,7 +63,13 @@ function CovidMap() {
         mapboxApiAccessToken={`${process.env.REACT_APP_MAPBOX_TOKEN}`}
         {...coordinates}
         onViewportChange={nextViewport => setCoordinates(nextViewport)}
-      />
+      >
+        <Source id="my-data" type="geojson" data={geojson}>
+        <Layer {...layerStyle} />
+        </Source>
+
+        
+      </ReactMapGL>
       </div>
       
     );
