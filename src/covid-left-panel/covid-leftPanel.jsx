@@ -2,7 +2,6 @@ import React from 'react'
 import Header from "../header/header"
 import CasesDetails from "../CasesDetails/CasesDetails"
 import CovidMap from "../Map/CovidMap"
-import SecondMap from "../Map/secondMap"
 
 
 const  covidLeftPanel = () => {
@@ -11,8 +10,7 @@ const  covidLeftPanel = () => {
           
             <Header/>
             <CasesDetails/>
-            {/* <CovidMap/> */}
-            <SecondMap/>
+            <CovidMap/>
             
         </div>
     )
